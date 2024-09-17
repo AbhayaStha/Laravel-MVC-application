@@ -14,14 +14,8 @@ class ProductsTableSeeder extends Seeder
     public function run(): void
     {
         DB::table('products')->insert([
-            'name' => 'iPhone 20',
-            'price' => 6009,
-            'updated_at' => DB::raw(' CURRENT_TIMESTAMP'),
-        ]);
-        DB::table('products')->insert([
-            'name' => 'Note 21',
-            'price' => 5674,
-            'updated_at' => DB::raw(' CURRENT_TIMESTAMP'),
-        ]);
+            ['name' => 'iPhone 20', 'price' => 1500.00, 'manufacturer_id' => 1, 'updated_at' => DB::raw('CURRENT_TIMESTAMP'),], 
+            ['name' => 'Galaxy Note 21', 'price' => 1400.00, 'manufacturer_id' => 2, 'updated_at' => DB::raw('CURRENT_TIMESTAMP'),],  
+            ]);
     }
 }
