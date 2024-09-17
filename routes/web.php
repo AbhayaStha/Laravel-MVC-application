@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Product;
+use App\Models\Manufacturer;
 
 Route::get('/', function () {
     return view('welcome');
@@ -15,11 +16,28 @@ Route::get('form', function(){
 });
 
 Route::get('/test', function(){
-    $product = new Product;
-    $product->name = 'ipod';
-    $product->price = 19.99;
-    $product->manufacturer_id = 1;
-    $product->save();
-    $id = $product->id;
-    dd($id);
+    // $product = new Product;
+    // $product->name = 'ipod';
+    // $product->price = 19.99;
+    // $product->manufacturer_id = 1;
+    // $product->save();
+    // $id = $product->id;
+    // dd($id);
+
+    // $product = Product::create(array('name'=>'Fold', 'price'=>7777, 'manufacturer_id'=>2));
+    // dd($product);
+});
+
+Route::get('/test1', function () {
+    $manufacturer = Manufacturer::find(1);
+
+    $products = $manufacturer->products;
+    dd($products);
+});
+
+Route::get('/test2', function () {
+    $product = Product::find(2);
+
+    $manufacturer = $product->manufacturer;
+    dd($manufacturer);
 });
