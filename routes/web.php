@@ -29,15 +29,13 @@ Route::get('/test', function(){
 });
 
 Route::get('/test1', function () {
-    $manufacturer = Manufacturer::find(1);
 
-    $products = $manufacturer->products;
+    $products = Manufacturer::find(1)->products;
     dd($products);
 });
 
 Route::get('/test2', function () {
-    $product = Product::find(2);
 
-    $manufacturer = $product->manufacturer;
-    dd($manufacturer);
+    $manufacturer = Product::find(2)->manufacturer;
+    echo ($manufacturer);
 });

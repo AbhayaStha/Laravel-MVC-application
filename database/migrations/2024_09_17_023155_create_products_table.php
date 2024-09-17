@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->float('price');
-            $table->foreignId('manufacturer_id')->constrained()->onDelete('cascade'); 
+            $table->foreign('manufacturer_id')->references('id')->on('manufacturers');
             $table->timestamps();
         });
     }
